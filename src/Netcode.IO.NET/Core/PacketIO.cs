@@ -2,7 +2,7 @@
 
 using NetcodeIO.NET.Utils;
 using NetcodeIO.NET.Utils.IO;
-
+using NetcodeIO.NET.Encryption;
 // using Org.BouncyCastle.Crypto.TlsExt;
 
 namespace NetcodeIO.NET.Internal
@@ -14,12 +14,12 @@ namespace NetcodeIO.NET.Internal
     {
         private static int Encrypt(byte[] plaintext, int offset, int len, byte[] additionalData, byte[] nonce, byte[] key, byte[] outBuffer)
         {
-            throw new NotImplementedException();
+            return AEADC20P1305.Encrypt(plaintext, offset, len, additionalData, nonce, key, outBuffer);
         }
 
         private static int Decrypt(byte[] ciphertext, int offset, int len, byte[] additionalData, byte[] nonce, byte[] key, byte[] outBuffer)
         {
-            throw new NotImplementedException();
+            return AEADC20P1305.Decrypt(ciphertext, offset, len, additionalData, nonce, key, outBuffer);
         }
 
         /// <summary>
